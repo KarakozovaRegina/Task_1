@@ -1,12 +1,22 @@
 package krv.fit.bstu.task_1
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+
+    var result_save: String = ""
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,5 +26,118 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val text_operation: TextView = findViewById(R.id.operation)
+        val text_result: TextView = findViewById(R.id.result)
+
+        // finish operations
+        val btn_delet: Button = findViewById(R.id.btn_delet)
+        val btn_result: Button = findViewById(R.id.btn_result)
+
+        // operations with number
+        val btn_change_singn_number: Button = findViewById(R.id.change_sing_number)
+        val btn_percent: Button = findViewById(R.id.operation_percent)
+        val btn_division: Button = findViewById(R.id.operation_division)
+        val btn_multiplication: Button = findViewById(R.id.operation_multiplication)
+        val btn_minus: Button = findViewById(R.id.operation_minus)
+        val btn_plus: Button = findViewById(R.id.operation_plus)
+        val btn_point: Button = findViewById(R.id.operation_point)
+
+
+        // numbers
+        val btn_zero: Button = findViewById(R.id.zero)
+        val btn_one: Button = findViewById(R.id.one)
+        val btn_two: Button = findViewById(R.id.two)
+        val btn_three: Button = findViewById(R.id.three)
+        val btn_fore: Button = findViewById(R.id.four)
+        val btn_five: Button = findViewById(R.id.five)
+        val btn_six: Button = findViewById(R.id.six)
+        val btn_seven: Button = findViewById(R.id.seven)
+        val btn_eight: Button = findViewById(R.id.eight)
+        val btn_nine: Button = findViewById(R.id.nine)
+
+        // delete all textView
+        btn_delet.setOnClickListener{
+            text_operation.text = ""
+            text_result.text = ""
+        }
+
+        // operation
+        btn_change_singn_number.setOnClickListener{
+            if(text_result.text.isEmpty()){
+                val number:Double = text_operation.text.toString().toDouble()
+                val changedNumber: Double = number * -1
+                text_result.text = changedNumber.toString()
+                text_operation.text = changedNumber.toString()
+            } else{
+                val number:Double = text_result.text.toString().toDouble()
+                val changedNumber: Double = number * -1
+                text_result.text = changedNumber.toString()
+                text_operation.text = changedNumber.toString()
+            }
+
+        }
+        btn_percent.setOnClickListener{
+            val number:String = text_result.text.toString()
+            val operation: Operation = Operation(number)
+            text_result.text = operation.getPercent()
+
+        }
+        btn_division.setOnClickListener{
+            text_operation.append(" / ")
+        }
+        btn_multiplication.setOnClickListener{
+            text_operation.append(" * ")
+        }
+        btn_minus.setOnClickListener{
+            text_operation.append(" - ")
+        }
+        btn_plus.setOnClickListener{
+            text_operation.append(" + ")
+        }
+        btn_point.setOnClickListener{
+            text_operation.append(" . ")
+        }
+
+        //numbers
+        btn_zero.setOnClickListener{
+            text_operation.append("0")
+        }
+        btn_one.setOnClickListener{
+            text_operation.append("1") }
+        btn_two.setOnClickListener{
+            text_operation.append("2")
+       }
+        btn_three.setOnClickListener{
+            text_operation.append("3") }
+        btn_fore.setOnClickListener{
+            text_operation.append("4")
+        }
+        btn_five.setOnClickListener{
+            text_operation.append("5")
+       }
+        btn_six.setOnClickListener{
+            text_operation.append("6")
+        }
+        btn_seven.setOnClickListener{
+            text_operation.append("7")
+       }
+        btn_eight.setOnClickListener{
+            text_operation.append("8")
+        }
+        btn_nine.setOnClickListener{
+            text_operation.append("9") }
+
+
+        //result
+        btn_result.setOnClickListener {
+            val operation: Operation = Operation(text_operation.text.toString())
+            text_result.text = operation.basicCalculate()
+            text_operation.text = text_result.text
+        }
+
     }
+
+
+
 }
