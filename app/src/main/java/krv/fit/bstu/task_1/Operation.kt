@@ -42,24 +42,27 @@ class Operation(val stringOperation: String, val last_result:String) {
     fun basicCalculate(): String {
         getParts()
         if(last_result == ""){
-            return when (operation) {
-                "+" -> (numberLeft.toDouble() + numberRight.toDouble()).toString()
-                "-" -> (numberLeft.toDouble() - numberRight.toDouble()).toString()
-                "*" -> (numberLeft.toDouble() * numberRight.toDouble()).toString()
-                "/" -> if (numberRight.toDouble() != 0.0) (numberLeft.toDouble() / numberRight.toDouble()).toString() else throw IllegalArgumentException("Деление на ноль")
-                else -> throw IllegalArgumentException("такой операции нет")
-            }
+            var result:String = get_operation(numberLeft, numberRight, operation)
+            return result
         }else
         {
-             return when (lastOperator) {
-                "+" -> (last_result.toDouble() + lastNumber.toDouble()).toString()
-                "-" -> (last_result.toDouble() - lastNumber.toDouble()).toString()
-                "*" -> (last_result.toDouble() * lastNumber.toDouble()).toString()
-                "/" -> if (last_result.toDouble() != 0.0) (last_result.toDouble() / lastNumber.toDouble()).toString() else throw IllegalArgumentException("Деление на ноль")
-                else -> throw IllegalArgumentException("такой операции нет")
-            }
+            var result:String = get_operation(last_result,  lastNumber, lastOperator)
+            return result
         }
 
+    }
+
+    fun get_operation(numberLeft: String, numberRight: String, operation:String):String{
+        return when (operation) {
+            "+" -> (numberLeft.toDouble() + numberRight.toDouble()).toString()
+            "-" -> (numberLeft.toDouble() - numberRight.toDouble()).toString()
+            "*" -> (numberLeft.toDouble() * numberRight.toDouble()).toString()
+            "/" -> if (numberRight.toDouble() != 0.0) (numberLeft.toDouble() / numberRight.toDouble()).toString() else throw IllegalArgumentException(
+                "Деление на ноль"
+            )
+
+            else -> throw IllegalArgumentException("такой операции нет")
+        }
     }
 
     fun getPercent():  String {
