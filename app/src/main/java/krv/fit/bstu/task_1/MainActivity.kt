@@ -1,21 +1,20 @@
 package krv.fit.bstu.task_1
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+<<<<<<< HEAD
 
 
     var last_result: String = ""
 
 
+=======
+>>>>>>> 72ac3e4b102cf0f18ac7f9c49af090fe53361ea0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+<<<<<<< HEAD
 
         val text_operation: TextView = findViewById(R.id.operation)
         val text_result: TextView = findViewById(R.id.result)
@@ -265,4 +265,7 @@ class MainActivity : AppCompatActivity() {
             return false
         }
     }
+=======
+    }
+>>>>>>> 72ac3e4b102cf0f18ac7f9c49af090fe53361ea0
 }
