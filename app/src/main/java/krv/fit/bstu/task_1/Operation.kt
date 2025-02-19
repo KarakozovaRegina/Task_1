@@ -46,7 +46,7 @@ class Operation(val stringOperation: String, val last_result:String) {
             return result
         }else
         {
-            var result:String = get_operation(last_result,  lastNumber, lastOperator)
+            val result:String = get_operation(last_result,  lastNumber, lastOperator)
             return result
         }
 
