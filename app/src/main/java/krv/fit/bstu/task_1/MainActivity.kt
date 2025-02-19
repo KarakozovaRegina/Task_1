@@ -1,7 +1,9 @@
 package krv.fit.bstu.task_1
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -105,8 +107,8 @@ class MainActivity : AppCompatActivity() {
 
         //numbers
         btn_zero.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("0")
@@ -118,8 +120,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_one.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("1")
@@ -131,8 +133,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_two.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("2")
@@ -144,8 +146,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_three.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("3")
@@ -157,8 +159,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_fore.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("4")
@@ -170,8 +172,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_five.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("5")
@@ -183,8 +185,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_six.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("6")
@@ -196,8 +198,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_seven.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("7")
@@ -209,8 +211,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_eight.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("8")
@@ -222,8 +224,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_nine.setOnClickListener {
-            val check_symbools: Boolean = checkTextOnSymbols(text_operation.text.toString())
-            val check_results: Boolean = checkResultAndLastresult(text_result.text.toString(), last_result)
+            val check_symbools: Boolean = check_text_on_Symbols(text_operation.text.toString())
+            val check_results: Boolean = check_result_and_lastresult(text_result.text.toString(), last_result)
 
             if(check_symbools==true || check_results==false){
                 text_operation.append("9")
@@ -248,7 +250,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun checkTextOnSymbols(text_countSymbols: String): Boolean {
+    fun check_text_on_Symbols(text_countSymbols: String): Boolean {
         if (text_countSymbols.count { it == '-' } == 1 || text_countSymbols.count { it == '+' } == 1 || text_countSymbols.count { it == '*' } == 1 || text_countSymbols.count { it == '/' } == 1) {
             return true
         } else {
@@ -256,7 +258,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun checkResultAndLastresult(text_result: String, last_result: String): Boolean {
+    fun check_result_and_lastresult(text_result: String, last_result: String): Boolean {
         if (text_result == "" || last_result == "") {
             return true
         } else {
