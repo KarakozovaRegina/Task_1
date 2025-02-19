@@ -42,7 +42,7 @@ class Operation(val stringOperation: String, val last_result:String) {
     fun basicCalculate(): String {
         getParts()
         if(last_result == ""){
-            var result:String = get_operation(numberLeft, numberRight, operation)
+            val result:String = get_operation(numberLeft, numberRight, operation)
             return result
         }else
         {
